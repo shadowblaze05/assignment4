@@ -1,17 +1,32 @@
 from django.contrib import admin
-from pages.models import Post, Comment, Student, Course, Enrollment
+from pages.models import Author, Category, Book
 # Register your models here.
-class CommentInLine(admin.TabularInline):
-    model = Comment
-    extra = 1
 
-@admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
-    list_display = ("title", "body", "created_at")
-    inlines = [CommentInLine]
-    search_fields = ("title", "body")
-    list_filter = ("created_at",)
-    ordering = ("created_at",)
+@admin.register(Author)
+class AuthorAdmin(admin.ModelAdmin):
+    list_display = ("name",)
+    search_fields = ("name",)
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ("name",)
+    search_fields = ("name",)
+    
+@admin.register(Book)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ("title",)
+    search_fields = ("title",)
+    ordering = ("published",)
+
+
+
+#@admin.register(Post)
+#class PostAdmin(admin.ModelAdmin):
+    #list_display = ("title", "body", "created_at")
+    #inlines = [CommentInLine]
+    #search_fields = ("title", "body")
+    #list_filter = ("created_at",)
+    #ordering = ("created_at",)
     
 #@admin.register(Comment)
 #class CommentAdmin(admin.ModelAdmin):

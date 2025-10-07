@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %} Authors{% endblock title %}
+{% block content %}
+<h2>Books</h2>
+<ul>
+    {% for book in books %}
+        <li>
+            <strong>{{ book.title }}</strong> by {{ book.author.name }} ({{ book.published }})
+            <br>Categories:
+            {% for cat in book.categories.all %}
+                {{ cat.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+            <br>
+    <hr>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

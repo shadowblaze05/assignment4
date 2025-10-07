@@ -12,9 +12,13 @@
         <a href="{% url 'home' %}">Home</a> |
         <a href="{% url 'about' %}">About</a> |
         <a href="{% url 'gallery' %}">Gallery</a> |
-        <a href="{% url 'post_list' %}">Posts</a>  |
-        <a href="{% url 'post_create' %}">Create</a>  |
+        {% comment %} <a href="{% url 'post_list' %}">Posts</a>  |
+        <a href="{% url 'post_create' %}">Create</a>  | {% endcomment %}
+        <a href="{% url 'author_list' %}">Author</a>
+        <a href="{% url 'book_list' %}">Books</a>
+        <a href="{% url 'category_list' %}">Category</a>
         <a href="{% url 'admin' %}">Admin</a> 
+        
 
     </nav>
     <main>
